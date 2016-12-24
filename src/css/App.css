@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -9,13 +9,19 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 70px;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.singerQueue {
+  margin: 0 50px;
+  font-size: 24px;
 }
 
 @keyframes App-logo-spin {

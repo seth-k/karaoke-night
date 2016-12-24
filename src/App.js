@@ -1,20 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, PropTypes } from 'react';
+import './css/App.css';
+import AddSinger from './components/AddSinger';
+import Singer from './components/Singer';
 
 class App extends Component {
+  addSinger = (name) => {
+    return 0;
+  }
+
   render() {
+    const { singers } = this.props;
+
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to Karaoke Night</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <AddSinger addSinger={this.addSinger} />
+        <div className="singerQueue">
+          { singers.map((singer, index) => (
+            <Singer name={singer.name}
+                index={index}
+                key={singer.name}
+                songs={singer.songs} />
+          )) }
+        </div>
       </div>
     );
+  }
+
+  static propTypes = {
+    singers: PropTypes.array,
+  };
+
+  static defaultProps = {
+    singers: [],
   }
 }
 

@@ -1,0 +1,22 @@
+.add-singer-form {
+    background: darkslategray;
+    color: antiquewhite;
+    margin: 0;
+    padding: 10px;
+}
+
+.add-singer-form form {
+    margin: 0 45px;
+}
+
+.add-singer-form input {
+    background: inherit;
+    color: inherit;
+    padding: 7px;
+    border: 1px grey solid;
+    border-radius: 5px;
+}
+
+.add-singer-form input[type="submit"] {
+    margin-left: 5px;
+}
