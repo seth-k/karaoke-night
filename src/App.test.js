@@ -35,4 +35,9 @@ describe('<App /> container', () => {
       <AddSinger />,
     ])).toBe(true);
   })
+
+  it('shows who is currently singing', () => {
+      const app = shallow(<App singers={sampleRotation} />);
+      expect(app.find('.now-playing').text()).toBe("Now Singing: S.S.S");
+  });
 });

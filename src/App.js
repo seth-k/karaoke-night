@@ -15,7 +15,12 @@ export class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Welcome to Karaoke Night</h2>
+          <div className="now-playing">
+            Now Singing: {singers[0] ? singers[0].name : "Don't be shy!"}
+            <i className="fa fa-step-forward"></i>
+          </div>
         </div>
+
         <AddSinger addSinger={addSinger} />
         <div className="singerQueue">
           { singers.map((singer, index) => (
