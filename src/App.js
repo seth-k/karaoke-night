@@ -44,7 +44,7 @@ export class App extends Component {
 
   static propTypes = {
     singers: PropTypes.array,
-    displaySongsIndex: PropTypes.nubmer,
+    displaySongsIndex: PropTypes.number,
   };
 
   static defaultProps = {

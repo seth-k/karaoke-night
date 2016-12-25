@@ -19,8 +19,8 @@ describe('<SongQueue /> components', () => {
         ]} singerIndex={0} addSong={jest.fn()} />);
         expect(wrapper.find('div.song-listing').length).toBe(1);
     });
-    
-    it('renders all an AddSongForm', () => {
+
+    it('renders an AddSongForm', () => {
         console.error = jest.fn(); // suppress prop warnings for containsAllMatchingElements
         const app = shallow(<SongQueue songs={[]} singerIndex={0} addSong={jest.fn()} />);
         expect(app.containsAllMatchingElements([
