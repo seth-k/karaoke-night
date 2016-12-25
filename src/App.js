@@ -8,9 +8,12 @@ import Singer from './components/Singer';
 
 export class App extends Component {
   render() {
-    const { singers, dispatch } = this.props;
+    const { singers, displaySongsIndex, dispatch } = this.props;
     const addSinger = bindActionCreators(SingerActionCreators.addSinger, dispatch);
     const nextSinger = bindActionCreators(SingerActionCreators.nextSinger, dispatch);
+    const addSong = bindActionCreators(SingerActionCreators.addSong, dispatch);
+    const displaySongsFor = bindActionCreators(SingerActionCreators.displaySongsFor, dispatch);
+    const hideSongs = bindActionCreators(SingerActionCreators.hideSongs, dispatch);
 
     return (
       <div className="App">
@@ -28,7 +31,11 @@ export class App extends Component {
             <Singer name={singer.name}
                 index={index}
                 key={singer.name}
-                songs={singer.songs} />
+                songs={singer.songs}
+                showSongs={index === displaySongsIndex}
+                displaySongsFor={displaySongsFor}
+                hideSongs={hideSongs}
+                addSong={addSong} />
           )) }
         </div>
       </div>
@@ -37,16 +44,19 @@ export class App extends Component {
 
   static propTypes = {
     singers: PropTypes.array,
+    displaySongsIndex: PropTypes.nubmer,
   };
 
   static defaultProps = {
     singers: [],
+    displaySongsIndex: -1,
   }
 }
 
 const mapStateToProps = state => (
   {
     singers: state.singers,
+    displaySongsIndex: state.displaySongQueue
   }
 );
 

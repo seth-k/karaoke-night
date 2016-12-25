@@ -12,3 +12,22 @@ export const nextSinger = () => {
         type: Types.NEXT_SINGER
     };
 }
+
+export const addSong = (index, song) => {
+    return {
+            type: Types.ADD_SONG,
+            index,
+            song
+    }
+}
+
+export const displaySongsFor = (index) => {
+    return {
+        type: Types.DISPLAY_SONGS,
+        index
+    }
+}
+
+export const hideSongs = () => {
+    return { type: Types.HIDE_SONGS };
+}

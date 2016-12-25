@@ -42,4 +42,28 @@ describe('singer reducer', () => {
             reducer( [], { type: Types.NEXT_SINGER })
         ).toEqual([]);
     });
+
+    it('should add a song to the players queue', () => {
+        expect(
+            reducer([
+                { name: "S.S.S", songs: [] },
+            ], { type: Types.ADD_SONG, index: 0, song: {
+            title: "Personal Jesus",
+            artist: "Depeche Mode",
+            vendor: "SC",
+            uri: 'https://www.youtube.com/watch?v=XBQmrAG64WI'
+        } })
+
+        ).toEqual([
+                { 
+                    name: "S.S.S", 
+                    songs: [{
+                        title: "Personal Jesus",
+                        artist: "Depeche Mode",
+                        vendor: "SC",
+                        uri: 'https://www.youtube.com/watch?v=XBQmrAG64WI'
+                    }] 
+                },
+        ]);
+    });
 });

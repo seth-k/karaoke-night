@@ -17,6 +17,13 @@ export default function singers(state = [], action) {
             }
             return state;
 
+        case Types.ADD_SONG:
+            return state.map((singer, index) => {
+                if(index === action.index) {
+                    singer.songs.push(action.song);
+                }
+                return singer
+            });
         default:
             return state;
     }
