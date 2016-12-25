@@ -10,10 +10,14 @@ export default function singers(state = [], action) {
 
         case Types.NEXT_SINGER:
             if(state.length > 0) {
-                return [
+                let newState = [
                     ...state.slice(1),
                     state[0]
                 ];
+                if(state[0].songs.length > 0) {
+                    newState[newState.length-1].songs = state[0].songs.slice(1)
+                }
+                return newState;
             }
             return state;
 

@@ -43,6 +43,20 @@ describe('singer reducer', () => {
         ).toEqual([]);
     });
 
+    it('should remove the first song from the singer\'s queue when advancing to the next', () => {
+        expect(
+            reducer([
+                { name: "Jix", songs: [ { title: "song1" }, { title: "song2"} ]},
+                { name: "Seth", songs: [{ title: "song1b" }, { title: "song2b"}] },
+                { name: "Al", songs: [{ title: "song1c" }, { title: "song2c"}] },   
+            ], { type: Types.NEXT_SINGER })
+        ).toEqual([
+                { name: "Seth", songs: [{ title: "song1b" }, { title: "song2b"}] },
+                { name: "Al", songs: [{ title: "song1c" }, { title: "song2c"}] },   
+                { name: "Jix", songs: [{ title: "song2"}] },
+            ]);
+    });
+
     it('should add a song to the players queue', () => {
         expect(
             reducer([

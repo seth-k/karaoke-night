@@ -15,13 +15,22 @@ export class App extends Component {
     const displaySongsFor = bindActionCreators(SingerActionCreators.displaySongsFor, dispatch);
     const hideSongs = bindActionCreators(SingerActionCreators.hideSongs, dispatch);
 
+    let currentSinger;
+    if(singers[0]) {
+      currentSinger = ( <span>
+          {singers[0].name} 
+          {singers[0].songs[0] && singers[0].songs[0].uri ? <a href={singers[0].songs[0].uri} target="karaoke_video"><i className="fa fa-play"></i></a> : null }
+          <i className="fa fa-step-forward" onClick={nextSinger}></i>
+        </span>);
+    } else {
+      currentSinger = (<span>Don't be shy!</span>);
+    }
     return (
       <div className="App">
         <div className="App-header">
           <h2>Welcome to Karaoke Night</h2>
           <div className="now-playing">
-            Now Singing: {singers[0] ? singers[0].name : "Don't be shy!"}
-            <i className="fa fa-step-forward" onClick={nextSinger}></i>
+            Now Singing: {currentSinger}
           </div>
         </div>
 
