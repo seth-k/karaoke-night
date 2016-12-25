@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import {App} from './App';
 import AddSinger from './components/AddSinger'
 import Singer from './components/Singer';
 
@@ -35,10 +35,4 @@ describe('<App /> container', () => {
       <AddSinger />,
     ])).toBe(true);
   })
-
-  xit('addSinger adds a new singer to the queue', () => {
-    const app = shallow(<App singers={sampleRotation} />)
-    app.instance().addSinger("Al");
-    expect(app.find(Singer).length).toBe(4);
-  });
 });

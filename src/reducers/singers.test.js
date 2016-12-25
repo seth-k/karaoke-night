@@ -4,11 +4,7 @@ import reducer from '../reducers/singers';
 describe('singer reducer', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {}))
-            .toEqual([
-                { name: "S.S.S", songs: []},
-                { name: "Jix", songs: []},
-                { name: "Larz", songs: []},
-            ])
+            .toEqual([])
     });
 
     it('should handle ADD_SINGER', () => {
