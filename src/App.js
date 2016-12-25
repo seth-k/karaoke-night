@@ -10,6 +10,7 @@ export class App extends Component {
   render() {
     const { singers, dispatch } = this.props;
     const addSinger = bindActionCreators(SingerActionCreators.addSinger, dispatch);
+    const nextSinger = bindActionCreators(SingerActionCreators.nextSinger, dispatch);
 
     return (
       <div className="App">
@@ -17,7 +18,7 @@ export class App extends Component {
           <h2>Welcome to Karaoke Night</h2>
           <div className="now-playing">
             Now Singing: {singers[0] ? singers[0].name : "Don't be shy!"}
-            <i className="fa fa-step-forward"></i>
+            <i className="fa fa-step-forward" onClick={nextSinger}></i>
           </div>
         </div>
 

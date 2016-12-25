@@ -6,3 +6,9 @@ export const addSinger = name => {
         name
     };
 }
+
+export const nextSinger = () => {
+    return {
+        type: Types.NEXT_SINGER
+    };
+}

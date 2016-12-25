@@ -10,4 +10,11 @@ describe('Singer/singer queue actions', () => {
         }
         expect(actions.addSinger(name)).toEqual(expectedAction);
     });
+
+    it('should create an action to advance the queue for the next performance', () => {
+        const expectedAction = {
+            type: types.NEXT_SINGER,
+        }
+        expect(actions.nextSinger(name)).toEqual(expectedAction);
+    });
 });
