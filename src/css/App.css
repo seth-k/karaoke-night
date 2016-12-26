@@ -23,6 +23,17 @@
   margin: 0 5px;
 }
 
+.now-playing a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto; 
+}
+.now-playing a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
 .singerQueue {
   margin: 0 50px;
   font-size: 24px;
